@@ -1,0 +1,20 @@
+在编译过程中遇到的一些问题
+# Error in loadNamespace(name) : there is no package called ‘bookdown’'desc''sessioninfo'
+install.packages("bookdown")
+install.packages("sessioninfo")
+install.packages("desc")
+
+devtools::install_github("hadley/sloop")
+devtools::install_github("hadley/emo")
+# 当上述两行报错时，在git bash 上输入
+git config --global http.sslBackend "openssl"
+git config --http.sslCAInfo D:/我的资料库/Documents/adv-r-master #这是我的工作目录
+
+#Introduction.Rmd 报错 Error in cat(paste0(contributors$desc, collapse = ", ")) : invalid multibyte string at '<86>,<4e>A (\@kfeng123), Karl Forner (\@kforner), Kirill Sevastyanenko (\@kirillseva), Brian Knaus (\@knausb), Kirill M眉ller (\@krlmlr), Kriti Sen Sharma (\@ksens), Kai Tang (鍞愭伜锛<89>,NA (\@ktang), Kevin Wright (\@kwstat), suo.lawrence.liu@gmail.com (\@Lawrence-Liu), \@ldfmrails, Kevin Kainan Li (\@legendre6891), Rachel Severson (\@leighseverson), Laurent Gatto (\@lgatto), C. Jason Liang (\@liangcj), Steve Lianoglou (\@lianos), Yongfu Liao (\@liao961120), Likan (\@likanzhan), \@lindbrook, Lingbing Feng (\@Lingbing), Marcel Ramos (\@LiNk-NY), Zhongpeng Lin (\@linzhp), Lionel Henry (\@lionel-), Llu铆s (\@llrs), myq (\@lrcg), Luke W Johnston (\@lwjohnst86), Kevin Lynagh (\@lynaghk), \@MajoroMask, Malcolm Barrett (\@malcolmbarrett), \@mannyishere, \@mascaretti, Matt (\@mattbaggott), Matthew Grogan (\@mattgrogan), \@matthewhillary, Matthieu Gomez (\@matthieugomez), Matt Malin (\@mattmalin), Mauro Lepore (\@maurolepore), Max Ghenis (\@MaxGhenis), M
+Calls: local ... withCallingHandlers -> withVisible -> eval -> eval -> cat
+在224行添加代码encoding = "UTF-8"
+contributors <- read.csv("contributors.csv", stringsAsFactors = FALSE, encoding = "UTF-8")
+
+#未解决的问题
+在编译functions.rmd时，报错Error in setwd(dir) :无法改变工作目录
+尝试用getwd()显示当前工作目录，并使用setwd()改变当前工作目录，但仍然显示同样的错误，故编译无法继续进行。

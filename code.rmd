@@ -1,0 +1,19 @@
+#下载
+https://github.com/hadley/adv-r/archive/master.zip
+
+# Install packages from CRAN
+install.packages('rmarkdown')
+install.packages("tinytex")
+
+#安装并配置Rtools
+library(devtools)
+
+#github 与 Rstudio建立连接
+devtools::install_github("hadley/sloop")
+devtools::install_github("hadley/emo")
+# 当上述两行报错时，在git bash 上的命令
+git config --global http.sslBackend "openssl"
+git config --http.sslCAInfo D:/我的资料库/Documents/adv-r-master #这是我的工作目录
+
+#编译为PDF
+bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book")
